@@ -28,6 +28,7 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [CategoryPage, AddCategoryComponent]
+  declarations: [CategoryPage, AddCategoryComponent],
+  // entryComponents: [AddCategoryComponent]
 })
 export class CategoryPageModule {}
