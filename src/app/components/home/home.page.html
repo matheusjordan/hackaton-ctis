@@ -3,16 +3,13 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>
+    <ion-title class="ion-no-padding">
       II Hackaton - Unifacisa
     </ion-title>
     <ion-buttons slot="end">
-      <ion-button slot="icon-only">
+      <ion-button [routerLink]="['/about']" slot="icon-only">
         <ion-icon name="information"></ion-icon>
       </ion-button>
-      <ion-button slot="icon-only">
-      <ion-icon name="home"></ion-icon>
-    </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
