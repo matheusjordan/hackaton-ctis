@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { AddCategoryComponent } from './add-category/add-category.component';
 import { categories } from '../../shared/mocks/mock';
+import { CategoryService } from './category.service';
 
 @Component({
   selector: 'app-category',
@@ -12,7 +13,8 @@ export class CategoryPage implements OnInit {
   catList = categories;
 
   constructor(
-    private modalCtrl: ModalController
+    private modalCtrl: ModalController,
+    private service: CategoryService
   ) { }
 
   ngOnInit() {
@@ -26,5 +28,4 @@ export class CategoryPage implements OnInit {
 
     return await modal.present();
   }
-
 }
