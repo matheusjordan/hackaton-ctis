@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { AddProductComponent } from './add-product/add-product.component';
+import { products } from '../../shared/mocks/mock';
+
 
 @Component({
   selector: 'app-product',
@@ -8,6 +10,7 @@ import { AddProductComponent } from './add-product/add-product.component';
   styleUrls: ['./product.page.scss'],
 })
 export class ProductPage implements OnInit {
+  prodList = products;
 
   constructor(
     private modalCtrl: ModalController

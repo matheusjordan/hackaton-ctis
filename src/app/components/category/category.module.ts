@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { CategoryPage } from './category.page';
 import { AddCategoryComponent } from './add-category/add-category.component';
+import { CategoryService } from './category.service';
 
 const routes: Routes = [
   {
@@ -29,6 +30,8 @@ const routes: Routes = [
     RouterModule.forChild(routes)
   ],
   declarations: [CategoryPage, AddCategoryComponent],
-  // entryComponents: [AddCategoryComponent]
+  providers: [
+    CategoryService
+  ]
 })
 export class CategoryPageModule {}

@@ -8,9 +8,22 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-    <ion-toolbar>
-      <ion-button slot="end" (click)="openAddModal()">
-        <ion-icon name="add"></ion-icon>
-      </ion-button>
-    </ion-toolbar>
+  <ion-toolbar>
+    <ion-button slot="end" (click)="openAddModal()">
+      <ion-icon name="add"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+  <ion-list>
+    <ion-item lines="none" *ngFor="let cat of catList" class="ion-no-padding">
+      {{ cat.name }}
+      <ion-buttons slot="end">
+        <ion-button slot="icon-only">
+          <ion-icon name="create"></ion-icon>
+        </ion-button>
+        <ion-button slot="icon-only">
+          <ion-icon name="trash"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
 </ion-content>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { AddCategoryComponent } from './add-category/add-category.component';
+import { categories } from '../../shared/mocks/mock';
 
 @Component({
   selector: 'app-category',
@@ -8,6 +9,7 @@ import { AddCategoryComponent } from './add-category/add-category.component';
   styleUrls: ['./category.page.scss'],
 })
 export class CategoryPage implements OnInit {
+  catList = categories;
 
   constructor(
     private modalCtrl: ModalController

@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { ProductPage } from './product.page';
 import { AddProductComponent } from './add-product/add-product.component';
+import { ProductService } from './product.service';
 
 const routes: Routes = [
   {
@@ -28,6 +29,9 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [ProductPage, AddProductComponent]
+  declarations: [ProductPage, AddProductComponent],
+  providers: [
+    ProductService
+  ]
 })
 export class ProductPageModule {}
