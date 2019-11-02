@@ -1,16 +1,26 @@
 <ion-header>
     <ion-toolbar>
-      <ion-title class="ion-no-padding">Cadastrar categoria</ion-title>
+      <ion-title class="ion-no-padding header-title">Cadastrar categoria</ion-title>
     </ion-toolbar>
   </ion-header>
   
   <ion-content class="ion-padding">
+    <form [formGroup]="categoryForm">
+      <ion-grid>
+        <ion-row>
+          <ion-item>
+            <ion-label position="floating">Nome</ion-label>
+            <ion-input type="text" formControlName="name"></ion-input>
+          </ion-item>  
+        </ion-row>
+      </ion-grid>
+    </form>
   </ion-content>
 
   <ion-footer>
     <ion-toolbar>
-      <ion-button (click)="closeModal()" slot="start" fill="clear">Cancelar</ion-button>
-      <ion-button slot="end">Salvar</ion-button>
+      <ion-button (click)="closeModal()" slot="start" fill="clear" class="start-btn">Cancelar</ion-button>
+      <ion-button slot="end" class="end-btn" [disabled]="categoryForm.invalid">Salvar</ion-button>
     </ion-toolbar>
   </ion-footer>
   
