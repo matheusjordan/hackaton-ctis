@@ -3,11 +3,41 @@
     <ion-buttons slot="start">
         <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title class="ion-no-padding">Cadastrar produto</ion-title>
+    <ion-title class="ion-no-padding header-title">Cadastrar produto</ion-title>
   </ion-toolbar>
 </ion-header>
   
 <ion-content class="ion-padding">
+  <form [formGroup]="productForm">
+    <ion-grid>
+      <ion-row>
+        <ion-item>
+          <ion-label position="floating">Nome</ion-label>
+          <ion-input type="text" formControlName="name"></ion-input>
+        </ion-item>
+      </ion-row>
+      <ion-row> 
+        <ion-item>
+          <ion-label position="floating">Valor</ion-label>
+          <ion-input type="number" formControlName="value"></ion-input>
+        </ion-item>
+      </ion-row>
+      <ion-row>
+        <ion-item>
+          <ion-label position="floating">Categoria</ion-label>
+          <ion-select formControlName="category">
+            <ion-select-option>1</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-row>
+      <ion-row> 
+        <ion-item>
+          <ion-label position="floating">Descrição</ion-label>
+          <ion-textarea type="number" formControlName="description"></ion-textarea>
+        </ion-item>
+      </ion-row>
+    </ion-grid>
+  </form>
 </ion-content>
 
 <ion-footer>
