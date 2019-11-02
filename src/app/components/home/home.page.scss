@@ -1,1 +1,38 @@
+.header {
+    ion-title {
+        padding-left: 16px;
+    }
+}
 
+.content-item {
+    --inner-padding-end: 0px;
+    
+    .total-card {
+        background-color: #ffebee;
+        min-width: 100%;
+        min-height: 72px;
+        
+        ion-card-title {
+            width: fit-content;
+            position: relative;
+            margin: 0px auto;
+            font-size: 38px;
+        }
+        
+        ion-label {
+            width: fit-content;
+            position: relative;
+            height: 32px;
+            margin: 0px auto;
+            font-size: 24px;
+        }
+    }
+}
+
+.start-btn {
+    padding-left: 16px
+}
+
+.end-btn {
+    padding-right: 16px;
+}

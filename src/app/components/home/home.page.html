@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar class="header">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -18,21 +18,21 @@
   <ion-grid>
     <ion-row>
       <ion-col size="6">
-        <ion-item lines="none">
-          <ion-card class="ion-no-margin">
+        <ion-item lines="none" class="ion-no-padding content-item">
+          <ion-card class="ion-no-margin total-card">
             <ion-card-title>{{ catCount }}</ion-card-title>
             <ion-card-subtitle>
-              Produtos
+              <ion-label>Produtos</ion-label>
             </ion-card-subtitle>
           </ion-card>
         </ion-item>
       </ion-col>
       <ion-col size="6">
-        <ion-item lines="none">
-          <ion-card class="ion-no-margin">
+        <ion-item lines="none" class="ion-no-padding content-item">
+          <ion-card class="ion-no-margin total-card">
             <ion-card-title>{{ prodCount }}</ion-card-title>
             <ion-card-subtitle>
-              Categorias
+              <ion-label>Categorias</ion-label>
             </ion-card-subtitle>
           </ion-card>
         </ion-item>
@@ -45,7 +45,7 @@
 
 <ion-footer>
   <ion-toolbar>
-    <ion-button [routerLink]="['/category']" slot="start">Categorias</ion-button>
-    <ion-button [routerLink]="['/product']" slot="end">Produtos</ion-button>
+    <ion-button [routerLink]="['/category']" slot="start" expand="block" fill="clear" class="start-btn">Categorias</ion-button>
+    <ion-button [routerLink]="['/product']" slot="end" expand="block" fill="clear" class="end-btn">Produtos</ion-button>
   </ion-toolbar>
 </ion-footer>
