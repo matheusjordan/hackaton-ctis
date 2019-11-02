@@ -7,20 +7,20 @@ export class CategoryService {
 
   constructor() { }
 
-  delete(product: Category) {
-    CatC.categories = CatC.categories.filter( item => item.id !== product.id );
+  delete(category: Category) {
+    CatC.categories = CatC.categories.filter( item => item.id !== category.id );
   }
 
-  add(product: Category) {
-    product.id = CatC.size;
+  add(category: Category) {
+    category.id = CatC.size;
     CatC.size += 1;
-    CatC.categories.push(product);
+    CatC.categories.push(category);
   }
 
-  edit(product: Category) {
+  edit(category: Category) {
     CatC.categories = CatC.categories.map( item => {
-      if (item.id === product.id) {
-        item = product;
+      if (item.id === category.id) {
+        item = category;
       }
       return item;
     });

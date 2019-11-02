@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CatC, ProdC } from '../../shared/mocks/mock';
 
 @Component({
   selector: 'app-home',
@@ -6,6 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  catCount = CatC.size;
+  prodCount = ProdC.size;
 
   constructor() {}
 

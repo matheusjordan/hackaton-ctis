@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { AddCategoryComponent } from './add-category/add-category.component';
-import { categories } from '../../shared/mocks/mock';
 import { CategoryService } from './category.service';
+import { CatC } from '../../shared/mocks/mock';
+import { Category } from 'src/app/shared/models/category.model';
 
 @Component({
   selector: 'app-category',
@@ -10,7 +11,7 @@ import { CategoryService } from './category.service';
   styleUrls: ['./category.page.scss'],
 })
 export class CategoryPage implements OnInit {
-  catList = categories;
+  catList = CatC.categories;
 
   constructor(
     private modalCtrl: ModalController,
@@ -27,5 +28,10 @@ export class CategoryPage implements OnInit {
     });
 
     return await modal.present();
+  }
+
+  delete(category: Category) {
+    this.service.delete(category);
+    this.catList = CatC.categories;
   }
 }
