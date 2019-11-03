@@ -25,8 +25,8 @@
       <ion-row>
         <ion-item>
           <ion-label position="floating" class="cat-label">Categoria</ion-label>
-          <ion-select formControlName="category">
-            <ion-select-option *ngFor="let cat of categories"> {{ cat.name }} </ion-select-option>
+          <ion-select formControlName="category" okText="selecionar" cancelText="voltar">
+            <ion-select-option *ngFor="let cat of categories" [value]="cat"> {{ cat.name }} </ion-select-option>
           </ion-select>
         </ion-item>
       </ion-row>
