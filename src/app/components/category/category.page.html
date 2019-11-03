@@ -12,7 +12,7 @@
     <ion-item lines="none" *ngFor="let cat of catList" class="ion-no-padding content-item">
       {{ cat.name }}
       <ion-buttons slot="end">
-        <ion-button slot="icon-only">
+        <ion-button slot="icon-only" (click)="openEditModal(cat)">
           <ion-icon name="create"></ion-icon>
         </ion-button>
         <ion-button slot="icon-only" (click)="delete(cat)">

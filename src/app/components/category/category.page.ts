@@ -11,27 +11,44 @@ import { Category } from 'src/app/shared/models/category.model';
   styleUrls: ['./category.page.scss'],
 })
 export class CategoryPage implements OnInit {
-  catList = CatC.categories;
+  catList: any[];
 
   constructor(
     private modalCtrl: ModalController,
-    private service: CategoryService
+    private categoryService: CategoryService
   ) { }
 
   ngOnInit() {
+    this.requestCategories();
   }
 
   async openAddModal() {
     const modal = await this.modalCtrl.create({
       component: AddCategoryComponent,
-      componentProps: { data: 'teste' }
+      componentProps: { isEdit: false }
+    });
+
+    return await modal.present();
+  }
+
+  async openEditModal(category: Category) {
+    const modal = await this.modalCtrl.create({
+      component: AddCategoryComponent,
+      componentProps: { isEdit: true, data: category }
     });
 
     return await modal.present();
   }
 
   delete(category: Category) {
-    this.service.delete(category);
-    this.catList = CatC.categories;
+    this.categoryService.delete(category).subscribe(
+      res => res
+    );
+  }
+
+  private requestCategories() {
+    this.categoryService.get().subscribe(
+      (res: any[]) => this.catList = res
+    );
   }
 }

@@ -8,6 +8,7 @@ import { IonicModule } from '@ionic/angular';
 import { CategoryPage } from './category.page';
 import { AddCategoryComponent } from './add-category/add-category.component';
 import { CategoryService } from './category.service';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   {
@@ -26,6 +27,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    HttpClientModule,
     IonicModule,
     RouterModule.forChild(routes)
   ],

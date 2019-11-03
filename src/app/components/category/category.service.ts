@@ -1,28 +1,48 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+import { tap } from 'rxjs/operators';
+
 import { Category } from '../../shared/models/category.model';
-import { CatC } from '../../shared/mocks/mock';
+import { environment } from '../../../environments/environment';
 
-@Injectable()
+@Injectable({ providedIn: 'root'} )
 export class CategoryService {
+  private baseUrl = environment.apiUrl + 'categories';
 
-  constructor() { }
+  constructor(
+    private http: HttpClient
+  ) { }
+
+  get() {
+    return this.http.get(this.baseUrl).pipe(
+      tap(
+        res => res
+      )
+    );
+  }
+
+  post(category: Category) {
+    return this.http.post(this.baseUrl, category).pipe(
+      tap(
+        res => res
+      )
+    );
+  }
+
+  put(category: Category) {
+    return this.http.put(`${this.baseUrl}/${category.id}`, category).pipe(
+      tap(
+        res => res
+      )
+    );
+  }
 
   delete(category: Category) {
-    CatC.categories = CatC.categories.filter( item => item.id !== category.id );
-  }
-
-  add(category: Category) {
-    category.id = CatC.size;
-    CatC.size += 1;
-    CatC.categories.push(category);
-  }
-
-  edit(category: Category) {
-    CatC.categories = CatC.categories.map( item => {
-      if (item.id === category.id) {
-        item = category;
-      }
-      return item;
-    });
+    return this.http.delete(`${this.baseUrl}/${category.id}`).pipe(
+      tap(
+        res => res
+      )
+    );
   }
 }

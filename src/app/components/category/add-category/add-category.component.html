@@ -20,7 +20,7 @@
   <ion-footer>
     <ion-toolbar>
       <ion-button (click)="closeModal()" slot="start" fill="clear" class="start-btn">Cancelar</ion-button>
-      <ion-button slot="end" class="end-btn" [disabled]="categoryForm.invalid">Salvar</ion-button>
+      <ion-button slot="end" class="end-btn" [disabled]="categoryForm.invalid" (click)="saveCategory()">Salvar</ion-button>
     </ion-toolbar>
   </ion-footer>
   
