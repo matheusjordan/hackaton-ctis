@@ -29,6 +29,14 @@ export class CategoryPage implements OnInit {
       componentProps: { isEdit: false }
     });
 
+    modal.onDidDismiss().then(
+      res => {
+        if (res.data) {
+          this.requestCategories();
+        }
+      }
+    );
+
     return await modal.present();
   }
 
@@ -37,6 +45,14 @@ export class CategoryPage implements OnInit {
       component: AddCategoryComponent,
       componentProps: { isEdit: true, data: category }
     });
+
+    modal.onDidDismiss().then(
+      res => {
+        if (res.data) {
+          this.requestCategories();
+        }
+      }
+    )
 
     return await modal.present();
   }

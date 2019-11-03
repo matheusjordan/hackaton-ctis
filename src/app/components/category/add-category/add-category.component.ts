@@ -34,8 +34,8 @@ export class AddCategoryComponent implements OnInit {
     }
   }
 
-  closeModal() {
-    this.modalCtrl.dismiss();
+  closeModal(sucess?: boolean) {
+    this.modalCtrl.dismiss(sucess);
   }
 
   saveCategory() {
@@ -52,7 +52,7 @@ export class AddCategoryComponent implements OnInit {
     observable.subscribe(
       (res: any) => {
         if (res) {
-          this.closeModal();
+          this.closeModal(true);
           this.showToast(`Categoria ${ this.isEdit ? 'editada' : 'criada' } com sucesso!`);
         }
       }

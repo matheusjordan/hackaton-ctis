@@ -42,8 +42,8 @@ export class AddProductComponent implements OnInit {
     }
   }
 
-  closeModal() {
-    this.modalCtrl.dismiss();
+  closeModal(sucess?: boolean) {
+    this.modalCtrl.dismiss(sucess);
   }
 
   saveProduct() {
@@ -60,7 +60,7 @@ export class AddProductComponent implements OnInit {
     observer.subscribe(
       res => {
         if (res) {
-          this.closeModal();
+          this.closeModal(true);
           this.showToast(`Produto ${this.isEdit ? 'editado' : 'criado'} com sucesso!`);
         }
       }

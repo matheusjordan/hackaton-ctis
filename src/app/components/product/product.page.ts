@@ -39,6 +39,14 @@ export class ProductPage implements OnInit {
       componentProps: { isEdit: false, categories: this.categoryList }
     });
 
+    modal.onDidDismiss().then(
+      res => {
+        if (res.data) {
+          this.requestProducts();
+        }
+      }
+    );
+
     return await modal.present();
   }
 
@@ -47,6 +55,14 @@ export class ProductPage implements OnInit {
       component: AddProductComponent,
       componentProps: { isEdit: true, data: product, categories: this.categoryList },
     });
+
+    modal.onDidDismiss().then(
+      res => {
+        if (res.data) {
+          this.requestProducts();
+        }
+      }
+    );
 
     return await modal.present();
   }
