@@ -1,0 +1,34 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Coca cola",
+      "value": 6,
+      "description": "1 Litro",
+      "category": {
+        "id": 1,
+        "name": "Bebidas"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Pipos Vitaminadoo",
+      "value": 2,
+      "description": "Pipos tem vitaminas e tbm sais minerais",
+      "category": {
+        "id": null,
+        "name": null
+      }
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Bebidas"
+    },
+    {
+      "id": 2,
+      "name": "Comidas"
+    }
+  ]
+}
