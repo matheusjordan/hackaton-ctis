@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { ModalController, AlertController, ToastController } from '@ionic/angular';
 import { AddProductComponent } from './add-product/add-product.component';
 import { ProdC } from '../../shared/mocks/mock';
 import { Product } from 'src/app/shared/models/product.model';
@@ -18,6 +18,8 @@ export class ProductPage implements OnInit {
 
   constructor(
     private modalCtrl: ModalController,
+    private alertCtrl: AlertController,
+    private toastCtrl: ToastController,
     private productService: ProductService,
     private categoryService: CategoryService
   ) { }
@@ -28,13 +30,7 @@ export class ProductPage implements OnInit {
   }
 
   delete(product: Product) {
-    this.productService.delete(product).subscribe(
-      res => {
-        if (res) {
-          this.requestProducts();
-        }
-      }
-    );
+    this.showAlert(`Deseja remover o o produto ${ product.name } ?`, product);
   }
 
   async openAddModal() {
@@ -49,7 +45,7 @@ export class ProductPage implements OnInit {
   async openEditModal(product: Product) {
     const modal = await this.modalCtrl.create({
       component: AddProductComponent,
-      componentProps: { isEdit: true, data: product, categories: this.categoryList }
+      componentProps: { isEdit: true, data: product, categories: this.categoryList },
     });
 
     return await modal.present();
@@ -73,6 +69,38 @@ export class ProductPage implements OnInit {
     this.categoryService.get().subscribe(
       (res: any[]) => this.categoryList = this.transformEachCategory(res)
     );
+  }
+
+  private async showAlert(msg: string, product: Product) {
+    const alert = await this.alertCtrl.create({
+      message: msg,
+      buttons: [
+        { text: 'cancelar', role: 'CANCEL' },
+        { text: 'excluir', role: 'OK', handler: () => this.requestDelete(product) }
+      ],
+    });
+
+    return await alert.present();
+  }
+
+  private requestDelete(product: any) {
+    this.productService.delete(product).subscribe(
+      res => {
+        if (res) {
+          this.showToast('Produto removido com sucesso!');
+          this.requestProducts();
+        }
+      }
+    );
+  }
+
+  private async showToast(msg: string) {
+    const toast = await this.toastCtrl.create({
+      message: msg,
+      duration: 1500
+    });
+
+    return await toast.present();
   }
 
 }
